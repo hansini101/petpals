@@ -3,6 +3,8 @@ import 'package:petpals/pages/settings/settings_screen.dart';
 import 'package:petpals/pages/home.dart';
 import 'package:petpals/pages/pet_care.dart';
 import 'package:petpals/pages/pet_shop.dart';
+import 'package:petpals/pages/location/location.dart';
+
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -58,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
     const HomePage(),
     const PetCarePage(),
     const PetShopPage(),
-    const SettingsScreen(),
+          Location(),
   ];
 
   @override
