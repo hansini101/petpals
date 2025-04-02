@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/bottom_nav_bar.dart';
-
+import 'appointment.dart';
 void main() {
   runApp(PetCareApp());
 }
@@ -166,19 +166,26 @@ class _PetCareScreenState extends State<PetCareScreen> {
   }
 
   Widget startButton() {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFFD1B574),
-          padding: EdgeInsets.symmetric(horizontal: 80, vertical: 12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        ),
-        child: Text("Start", style: TextStyle(fontSize: 16, color: Colors.white)),
+  return Center(
+    child: ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AppointmentPage()),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFD1B574),
+        padding: EdgeInsets.symmetric(horizontal: 80, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-    );
-  }
+      child: Text("Start", style: TextStyle(fontSize: 16, color: Colors.white)),
+    ),
+  );
 }
+
+  }
+
 
 class SecondPage extends StatefulWidget {
   @override
