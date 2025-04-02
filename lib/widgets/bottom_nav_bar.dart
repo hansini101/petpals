@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petpals/pages/settings/settings_screen.dart';
 import 'package:petpals/pages/home.dart';
 import 'package:petpals/pages/pet_care.dart';
 import 'package:petpals/pages/pet_shop.dart';
+import 'package:petpals/pages/petcare/petcare.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -22,11 +22,12 @@ class BottomNavBar extends StatelessWidget {
         debugPrint("Tapped index: $index"); // Debugging
         onTabChange(index);
       },
-      backgroundColor: const Color(0xFFC4B177), // Brown color
+       backgroundColor:  Color(0xFFC4B177), // Brown color
       selectedItemColor: Colors.white, // Selected item color
       unselectedItemColor: Colors.white70, // Unselected item color
       type: BottomNavigationBarType.fixed, // Ensures all labels are visible
       items: const [
+        
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.pets), label: 'Pet Care'),
         BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Pet Shop'),
@@ -58,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
     const HomePage(),
     const PetCarePage(),
     const PetShopPage(),
-    const SettingsScreen(),
+     PetCareScreen(),
   ];
 
   @override
