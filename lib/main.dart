@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/settings/settings_screen.dart';
+import 'pages/pet_mart/pet_mart_01.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFB89C5A),
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: SettingsScreen(),
+      home: PetMart01Screen(),
     );
   }
 }
