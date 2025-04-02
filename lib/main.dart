@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:petpals/pages/home/get_started.dart';
 import 'pages/settings/settings_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PetpalsApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PetpalsApp extends StatelessWidget {
+  const PetpalsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFB89C5A),
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: SettingsScreen(),
+      home:MainScreen(),
     );
   }
 }
