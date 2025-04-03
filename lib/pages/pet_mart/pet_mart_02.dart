@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:petpals/pages/pet_mart/pet_mart_01.dart';
 import 'package:petpals/pages/pet_mart/pet_mart_03.dart';
+import 'package:petpals/pages/pet_mart/cart.dart ';
 import '../../widgets/bottom_nav_bar.dart';
 
 class PetMart02 extends StatelessWidget {
@@ -505,26 +506,39 @@ class ProductCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          'assets/add_cart_icon.png',
-                          width: 14,
-                          height: 14,
-                          errorBuilder:
-                              (context, error, stackTrace) => const Icon(
-                                Icons.add_shopping_cart,
-                                size: 14,
-                                color: Colors.black,
-                              ),
-                        ),
-                        const SizedBox(width: 4),
-                        const Text(
-                          'Add to cart',
-                          style: TextStyle(fontSize: 12, color: Colors.black),
-                        ),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        // Navigate to the Cart page when tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    const CartApp(), // Replace with the actual cart page widget
+                          ),
+                        );
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/add_cart_icon.png',
+                            width: 14,
+                            height: 14,
+                            errorBuilder:
+                                (context, error, stackTrace) => const Icon(
+                                  Icons.add_shopping_cart,
+                                  size: 14,
+                                  color: Colors.black,
+                                ),
+                          ),
+                          const SizedBox(width: 4),
+                          const Text(
+                            'Add to cart',
+                            style: TextStyle(fontSize: 12, color: Colors.black),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

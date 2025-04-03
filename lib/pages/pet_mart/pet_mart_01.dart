@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'pet_mart_02.dart';
 import 'pet_mart_03.dart';
+import 'package:petpals/pages/pet_mart/petfood.dart';
 
 class PetMart01 extends StatelessWidget {
   @override
@@ -127,7 +128,7 @@ class PetMart01Screen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PetMart01()),
+                      MaterialPageRoute(builder: (context) => PetFoodApp()),
                     );
                   },
                 ),

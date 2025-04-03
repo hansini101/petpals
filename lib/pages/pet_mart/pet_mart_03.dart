@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:petpals/pages/pet_mart/pet_mart_01.dart';
 import 'package:petpals/pages/pet_mart/pet_mart_02.dart';
+import 'package:petpals/pages/pet_mart/cart.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
 class PetMart03 extends StatelessWidget {
@@ -426,7 +427,17 @@ class _PetMart03ScreenState extends State<PetMart03Screen> {
                   width: double.infinity,
                   height: 30,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navigate to the Cart page when pressed
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  const CartApp(), // Replace with your actual cart page widget
+                        ),
+                      );
+                    },
                     child: Text(
                       'Add to cart',
                       style: TextStyle(fontSize: 12, color: Colors.black),
