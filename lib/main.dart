@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'pages/settings/settings_screen.dart';
 import 'pages/location/location.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFB89C5A),
         scaffoldBackgroundColor: Colors.white,
       ),
+
       home: Location(),
+
     );
   }
 }

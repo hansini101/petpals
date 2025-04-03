@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:petpals/pages/settings/settings_screen.dart';
+import 'package:petpals/pages/pet_adoption/pet_adoption.dart';
+
 import 'package:petpals/pages/home.dart';
 import 'package:petpals/pages/pet_care.dart';
 import 'package:petpals/pages/pet_shop.dart';
@@ -60,6 +61,7 @@ class _MainScreenState extends State<MainScreen> {
     const HomePage(),
     const PetCarePage(),
     const PetShopPage(),
+
           Location(),
   ];
 
