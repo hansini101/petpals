@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petpals/pages/pet_adoption/pet_adoption.dart';
 import 'pages/settings/settings_screen.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFB89C5A),
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: SettingsScreen(),
+      home: PetAdoptionApp(),
     );
   }
 }
