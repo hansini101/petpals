@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petpals/pages/pet_adoption/pet_adoption.dart';
+import 'package:petpals/pages/home/get _started.dart';
 
-import 'package:petpals/pages/home.dart';
+
 import 'package:petpals/pages/pet_care.dart';
 import 'package:petpals/pages/pet_shop.dart';
 import 'package:petpals/pages/location/location.dart';
@@ -58,7 +59,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   final List<Widget> _screens = [
-    const HomePage(),
     const PetCarePage(),
     const PetShopPage(),
 

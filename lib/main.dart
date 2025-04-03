@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/settings/settings_screen.dart';
-import 'pages/location/location.dart';
-
+import 'pages/landing/landing1.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
 
-      home: Location(),
+      home: PetPalsApp(),
 
     );
   }
