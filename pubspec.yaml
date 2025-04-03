@@ -66,6 +66,14 @@ flutter:
     - assets/cat1.png
     - assets/cat2.png
     - assets/cat3.png
+    - assets/bella.png
+    - assets/chico.png
+    - assets/fluffy.png
+    - assets/rex.png
+    - assets/rockey.png
+    - assets/breed.png
+    - assets/gender.png
+    - assets/age.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:petpals/pages/pet_adoption/pet_adoption.dart';
-import 'pages/settings/settings_screen.dart';
 
 void main() {
   runApp(MyApp());
