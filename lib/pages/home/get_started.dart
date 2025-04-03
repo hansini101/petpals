@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: "AIzaSyB42DwsA_S2-DT5agd14Xtf9Gx906pY7SU", // Replace with your API key
-      appId: "1:940088749735:android:264390f623c562fb8c7582", // Replace with your App ID
-      messagingSenderId: "940088749735", // Replace with your Messaging Sender ID
-      projectId: "petpal-6135c", // Replace with your Project ID
-    ),
-  );
+void main() {
   runApp(const PetpalsApp());
 }
 
@@ -82,36 +72,16 @@ class WelcomeScreen extends StatelessWidget {
         CustomButton(text: 'Login', onTap: () => onNavigate('login'), color: const Color(0xFFB99A5E)),
         const SizedBox(height: 40),
         CustomButton(text: 'Signup', onTap: () => onNavigate('signup'), color: const Color(0xFFB99A5E)),
+        const SizedBox(height: 40),
+        Image.asset('assets/img01.png', height: 400, fit: BoxFit.cover),
       ],
     );
   }
 }
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   final Function(String) onNavigate;
   const LoginScreen({super.key, required this.onNavigate});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  Future<void> _login() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-      widget.onNavigate('home'); // Navigate to home after successful login
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,64 +92,33 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Image.asset('assets/logo.png', height: 80),
           const SizedBox(height: 40),
-          CustomInputField(
-            icon: Icons.email_outlined,
-            hintText: 'Email Address',
-            controller: _emailController,
-          ),
+          const CustomInputField(icon: Icons.email_outlined, hintText: 'Email Address'),
           const SizedBox(height: 40),
-          CustomInputField(
-            icon: Icons.lock_outline,
-            hintText: 'Password',
-            isPassword: true,
-            controller: _passwordController,
-          ),
+          const CustomInputField(icon: Icons.lock_outline, hintText: 'Password', isPassword: true),
           const SizedBox(height: 40),
-          CustomButton(text: 'Login', onTap: _login, color: const Color(0xFFB99A5E)),
+          CustomButton(text: 'Login', onTap: () => onNavigate('home'), color: const Color(0xFFB99A5E)),
           const SizedBox(height: 10),
           TextButton(
-            onPressed: () => widget.onNavigate('signup'),
-            child: const Text(
-              'Signup',
-              style: TextStyle(color: Color(0xFFB99A5E), fontWeight: FontWeight.bold),
-            ),
+            onPressed: () => onNavigate('signup'),
+            child: const Text('Signup', style: TextStyle(color: Color(0xFFB99A5E), fontWeight: FontWeight.bold)),
           ),
+          const SizedBox(height: 20),
+          CustomLoginButton(icon: FontAwesomeIcons.google, text: 'Login with Google', onTap: () {}),
+          const SizedBox(height: 20),
+          CustomLoginButton(icon: FontAwesomeIcons.facebook, text: 'Login with Facebook', onTap: () {}),
+          const SizedBox(height: 20),
+          CustomLoginButton(icon: FontAwesomeIcons.apple, text: 'Login with Apple', onTap: () {}),
           const SizedBox(height: 10),
-          TextButton(
-            onPressed: () => widget.onNavigate('welcome'),
-            child: const Text('Back'),
-          ),
+          TextButton(onPressed: () => onNavigate('welcome'), child: const Text('Back')),
         ],
       ),
     );
   }
 }
 
-class SignupScreen extends StatefulWidget {
+class SignupScreen extends StatelessWidget {
   final Function(String) onNavigate;
   const SignupScreen({super.key, required this.onNavigate});
-
-  @override
-  State<SignupScreen> createState() => _SignupScreenState();
-}
-
-class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  Future<void> _signup() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-      widget.onNavigate('home'); // Navigate to home after successful signup
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -193,16 +132,15 @@ class _SignupScreenState extends State<SignupScreen> {
             children: [
               Image.asset('assets/logo.png', height: 100, width: 100),
               const SizedBox(height: 40),
-              CustomInputField(icon: Icons.email_outlined, hintText: 'Email', controller: _emailController),
-              const SizedBox(height: 40),
-              CustomInputField(
-                icon: Icons.lock_outline,
-                hintText: 'Password',
-                isPassword: true,
-                controller: _passwordController,
-              ),
-              const SizedBox(height: 40),
-              CustomButton(text: 'Signup', onTap: _signup, color: const Color(0xFFB99A5E)),
+              const CustomInputField(icon: Icons.person_outline, hintText: 'Full Name'),
+              const SizedBox(height: 20),
+              const CustomInputField(icon: Icons.email_outlined, hintText: 'Email'),
+              const SizedBox(height: 20),
+              const CustomInputField(icon: Icons.lock_outline, hintText: 'Password', isPassword: true),
+              const SizedBox(height: 20),
+              const CustomInputField(icon: Icons.phone_outlined, hintText: 'Phone number'),
+              const SizedBox(height: 30),
+              CustomButton(text: 'Signup', onTap: () {}, color: const Color(0xFFB99A5E)),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -210,7 +148,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const Text('Already have an account?'),
                   TextButton(
                     onPressed: () {
-                      widget.onNavigate('login');
+                      onNavigate('login');
                     },
                     child: const Text(
                       'Login',
@@ -255,10 +193,8 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 20),
           CustomBlackButton(text: 'PET MART', onTap: () {}),
           const Spacer(),
-          TextButton(
-            onPressed: () => onNavigate('welcome'),
-            child: const Text('Back'),
-          ),
+          Image.asset('assets/img02.png', height: 400, fit: BoxFit.cover),
+          TextButton(onPressed: () => onNavigate('welcome'), child: const Text('Back')),
         ],
       ),
     );
@@ -269,20 +205,17 @@ class CustomInputField extends StatelessWidget {
   final IconData icon;
   final String hintText;
   final bool isPassword;
-  final TextEditingController? controller;
 
   const CustomInputField({
     super.key,
     required this.icon,
     required this.hintText,
     this.isPassword = false,
-    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: Colors.grey),
@@ -335,6 +268,24 @@ class CustomButton extends StatelessWidget {
   }
 }
 
+class CustomLoginButton extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final VoidCallback onTap;
+
+  const CustomLoginButton({super.key, required this.icon, required this.text, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: onTap,
+      icon: Icon(icon, color: Colors.white),
+      label: Text(text),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+    );
+  }
+}
+
 class CustomBlackButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
@@ -346,10 +297,7 @@ class CustomBlackButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       child: Text(text),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.black,
-        foregroundColor: const Color(0xFFB99A5E),
-      ),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.black, foregroundColor: Color(0xFFB99A5E)),
     );
   }
 }
